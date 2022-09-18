@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import createStore from "redux-zero";
+import { Provider, connect } from "redux-zero/react";
 
 function App() {
   return (
