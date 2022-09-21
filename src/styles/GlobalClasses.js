@@ -9,5 +9,24 @@ export const GlobalClasses = css`
     font-size: 16px;
     background-color: ${(props) => props.theme.layoutBg};
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.5);
+    color: ${(props) => props.theme.textPrimary};
+    font-size: 14px;
+  }
+  .has-scroll-bar {
+    will-change: scroll-position;
+    scroll-behavior: smooth;
+    overflow: hidden overlay;
+    &::-webkit-scrollbar {
+      width: 10px;
+      display: none;
+    }
+    &:hover::-webkit-scrollbar {
+      width: 10px;
+      display: inline-block;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 12px;
+      background: ${(props) => props.theme.alphaBg};
+    }
   }
 `;

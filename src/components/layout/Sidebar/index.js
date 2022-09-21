@@ -7,9 +7,12 @@ import Box from "@mui/material/Box";
 import styled from "styled-components";
 import { listTheme } from "themes/listTheme";
 import { themes } from "themes/themeData";
-import { connect } from "redux-zero/react";
+import { useDispatch } from "react-redux";
+import { setThemeBg } from "redux-toolkit/global/globalSlice";
+import { TextField } from "@mui/material";
+import SliderProgress from "./Slider";
 const StyledSidebar = styled.div`
-  width: 350px;
+  width: 420px;
   & .MuiTabs-scroller {
     .MuiTabs-flexContainer {
       justify-content: center;
@@ -31,6 +34,32 @@ const StyledSidebar = styled.div`
   .theme-title {
     color: ${(props) => props.theme.textPrimary};
   }
+  & .MuiBox-root {
+    border-color: ${(props) => props.theme.borderTab};
+  }
+  .playback-title {
+    color: ${(props) => props.theme.textPrimary};
+    font-size: 14px;
+  }
+
+  & .MuiFilledInput-root {
+    height: 40px;
+    &::after {
+      border-bottom: 2px solid ${(props) => props.theme.tabActive};
+    }
+    &:hover::before {
+      border-bottom: 1px solid ${(props) => props.theme.tabActive};
+    }
+    input {
+      color: ${(props) => props.theme.textPrimary};
+    }
+    input::-webkit-input-placeholder {
+      color: ${(props) => props.theme.tabActive};
+    }
+    input::-moz-input-placeholder {
+      color: ${(props) => props.theme.tabActive};
+    }
+  }
 `;
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -45,7 +74,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <Box>{children}</Box>
         </Box>
       )}
     </div>
@@ -67,15 +96,16 @@ function a11yProps(index) {
 
 const Sidebar = () => {
   const [value, setValue] = React.useState(0);
-  const mapToProps = ({ theme }) => ({ theme });
-  // console.log(mapToProps);
+  const dispatch = useDispatch();
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   const handleApplyTheme = (typeTheme) => {
     const currentTheme = themes[typeTheme];
-    console.log(currentTheme);
+    dispatch(setThemeBg(currentTheme));
   };
+
   return (
     <StyledSidebar>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -91,29 +121,64 @@ const Sidebar = () => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        item1
+        <div className="flex items-center gap-x-3">
+          <span className="playback-title whitespace-nowrap">
+            Playback Speed:
+          </span>
+          <div className="w-[300px]">
+            <SliderProgress />
+          </div>
+        </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        item2
+        <span className="text-sm">Hot keys:</span>
+        <div className="h-[160px] max-h-full has-scroll-bar mt-3">
+          <div className="flex flex-col items-center justify-center gap-y-3">
+            <div className="flex items-center gap-x-3">
+              <span className="w-20">Play/Stop</span>
+              <div className="relative ">
+                <TextField id="filled-basic" variant="filled" />
+              </div>
+            </div>
+            <div className="flex items-center gap-x-3">
+              <span className="w-20">Record/Stop</span>
+              <div className="relative ">
+                <TextField id="filled-basic" variant="filled" />
+              </div>
+            </div>
+            <div className="flex items-center gap-x-3">
+              <span className="w-20">Bring to top</span>
+              <div className="relative ">
+                <TextField id="filled-basic" variant="filled" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col">
+          <span>Typing Speed:</span>
+          <SliderProgress />
+        </div>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        {listTheme.map((theme, index) => {
-          return (
-            <span
-              onClick={() => handleApplyTheme(theme.type)}
-              key={theme.id}
-              className="flex items-center mb-3 cursor-pointer gap-x-3"
-            >
-              <button
-                style={{ backgroundColor: `${theme.color}` }}
-                className={`w-10 h-10 rounded-full theme-btn`}
-              ></button>
-              <span className="text-sm font-medium theme-title">
-                {theme.title}
-              </span>
-            </span>
-          );
-        })}
+        <div className="flex flex-col gap-y-3">
+          {listTheme.map((theme, index) => {
+            return (
+              <div
+                onClick={() => handleApplyTheme(theme.type)}
+                key={theme.id}
+                className="flex items-center cursor-pointer gap-x-3"
+              >
+                <button
+                  style={{ backgroundColor: `${theme.color}` }}
+                  className={`w-10 h-10 rounded-full theme-btn`}
+                ></button>
+                <span className="text-sm font-medium theme-title">
+                  {theme.title}
+                </span>
+              </div>
+            );
+          })}
+        </div>
       </TabPanel>
     </StyledSidebar>
   );

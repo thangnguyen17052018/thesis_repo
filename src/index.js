@@ -2,20 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { Provider } from "redux-zero/react";
 import reportWebVitals from "./reportWebVitals";
-import { ThemeProvider } from "styled-components";
-import { GlobalStyles } from "styles/Globalstyles";
-import { themes } from "./themes/themeData";
-import store from "./redux/configureStore";
+import store from "redux-toolkit/configureStore";
+import { Provider } from "react-redux";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ThemeProvider theme={themes.primaryTheme}>
-    <GlobalStyles></GlobalStyles>
+  <React.StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
-  </ThemeProvider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
