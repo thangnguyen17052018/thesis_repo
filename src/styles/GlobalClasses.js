@@ -12,6 +12,7 @@ export const GlobalClasses = css`
     color: ${(props) => props.theme.textPrimary};
     font-size: 14px;
   }
+
   .has-scroll-bar {
     will-change: scroll-position;
     scroll-behavior: smooth;
@@ -26,7 +27,7 @@ export const GlobalClasses = css`
     }
     &::-webkit-scrollbar-thumb {
       border-radius: 12px;
-      background: ${(props) => props.theme.alphaBg};
+      background: ${(props) => props.theme.scrollBg};
     }
   }
 `;

@@ -12,7 +12,7 @@ import { setThemeBg } from "redux-toolkit/global/globalSlice";
 import { TextField } from "@mui/material";
 import SliderProgress from "./Slider";
 const StyledSidebar = styled.div`
-  width: 420px;
+  flex: 1;
   & .MuiTabs-scroller {
     .MuiTabs-flexContainer {
       justify-content: center;
