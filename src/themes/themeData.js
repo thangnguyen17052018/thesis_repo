@@ -14,6 +14,7 @@ export const themes = {
     hoverBg: "#fff",
     saveBg: "#8ac926",
     changleBg: "#f7b801",
+    boderCheckItem: "rgba(0, 0, 0, 0.12)",
   },
   dynamicBlue: {
     layoutBg: "#d6eadf",
@@ -30,6 +31,7 @@ export const themes = {
     hoverBg: "rgba(255, 255, 255, 0.8)",
     saveBg: "#8ac926",
     changleBg: "#f7b801",
+    boderCheckItem: "rgba(0, 0, 0, 0.12)",
   },
   dynamicPink: {
     layoutBg: "#fcd5ce",
@@ -46,9 +48,10 @@ export const themes = {
     hoverBg: "rgba(255, 255, 255, 0.5)",
     saveBg: "#8ac926",
     changleBg: "#f7b801",
+    boderCheckItem: "rgba(0, 0, 0, 0.12)",
   },
   darkTheme: {
-    layoutBg: "#353535",
+    layoutBg: "#121212",
     textHeading: "#d90429",
     textPrimary: "#fff",
     tabActive: "#d90429",
@@ -62,6 +65,8 @@ export const themes = {
     hoverBg: "rgba(255, 255, 255, 0.1)",
     saveBg: "#8ac926",
     changleBg: "#f7b801",
+    boderCheckItem: "#dad7cd",
+    modalContentBg: "#1d1d1d",
   },
   lightTheme: {
     layoutBg: "#f8f9fa",
@@ -78,5 +83,6 @@ export const themes = {
     hoverBg: "rgba(0, 0, 0, 0.05)",
     saveBg: "#8ac926",
     changleBg: "#f7b801",
+    boderCheckItem: "rgba(0, 0, 0, 0.12)",
   },
 };

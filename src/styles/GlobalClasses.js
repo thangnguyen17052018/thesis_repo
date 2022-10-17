@@ -7,6 +7,7 @@ export const GlobalClasses = css`
   body {
     font-weight: 400;
     font-size: 16px;
+    -webkit-tap-highlight-color: transparent !important;
     background-color: ${(props) => props.theme.layoutBg};
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.5);
     color: ${(props) => props.theme.textPrimary};

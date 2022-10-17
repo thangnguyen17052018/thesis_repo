@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { themes } from "themes/themeData";
+import { themes } from "../../themes/themeData";
 const { primaryTheme } = themes;
 export const globalSlice = createSlice({
   name: "global",

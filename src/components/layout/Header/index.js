@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { ThemeIcon } from "components/layout/Header/icons";
-import Button from "components/button";
 import { BiUser } from "react-icons/bi";
 const StyledHeader = styled.div`
   height: 70px;

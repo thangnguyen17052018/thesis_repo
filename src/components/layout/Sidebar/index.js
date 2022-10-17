@@ -5,10 +5,10 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import styled from "styled-components";
-import { listTheme } from "themes/listTheme";
-import { themes } from "themes/themeData";
+import { listTheme } from "../../../themes/listTheme";
+import { themes } from "../../../themes/themeData";
 import { useDispatch } from "react-redux";
-import { setThemeBg } from "redux-toolkit/global/globalSlice";
+import { setThemeBg } from "../../../redux-toolkit/global/globalSlice";
 import { TextField } from "@mui/material";
 import SliderProgress from "./Slider";
 const StyledSidebar = styled.div`

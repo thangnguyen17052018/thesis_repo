@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import chorome from "assets/chrome.png";
-import vscode from "assets/vscode.png";
-import firefox from "assets/firefox.png";
+import chorome from "../../../../assets/chrome.png";
+import vscode from "../../../../assets/vscode.png";
+import firefox from "../../../../assets/firefox.png";
 const StyledPopper = styled.div`
   width: 100%;
   background-color: ${(props) => props.theme.selectorBg};
@@ -14,6 +14,7 @@ const StyledPopper = styled.div`
   color: ${(props) => props.theme.textPrimary};
   border-bottom: 2px solid ${(props) => props.theme.borderPrimary};
   border-right: 2px solid ${(props) => props.theme.borderPrimary};
+  display: none;
   .popper-item {
     &:hover {
       background-color: ${(props) => props.theme.hoverBg};
