@@ -2,7 +2,7 @@ import "./App.css";
 import "tippy.js/dist/tippy.css";
 import Header from "./components/layout/Header";
 import Sidebar from "./components/layout/Sidebar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Fragment } from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./styles/Globalstyles";
@@ -10,6 +10,8 @@ import Main from "./components/layout/Main";
 import Modal from "./components/Modal/Modal";
 
 function App() {
+  const dispatch = useDispatch();
+  const { setShowEditEvent } = useSelector((state) => state.global);
   const { theme } = useSelector((state) => state.global);
   return (
     <Fragment>
